@@ -1,0 +1,14 @@
+<div class="stepper pl-2 pr-2">
+    <ng-container *ngFor="let dataItem of dataSource; let i = index">
+        <div class="item text-center" (click)="stepSelect(dataItem)" data-toggle="tooltip" data-placement="bottom" [title]="dataItem.Tooltip" [ngClass]="{'disabled': !dataItem.Enabled}">
+            <div class="mr-2 badge" [ngClass]="defineBackgroundClass(dataItem)">
+                <i class="fa" [ngClass]="defineIconClass(dataItem)" aria-hidden="true"></i>
+            </div>
+            <span>{{ dataItem.Label }}</span>
+        </div>
+
+        <ng-container *ngIf="i != dataSource.length -1">
+            <div class="line"></div>
+        </ng-container>
+    </ng-container>
+</div>

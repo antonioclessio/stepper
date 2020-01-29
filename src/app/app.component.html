@@ -1,0 +1,30 @@
+<div class="container p-5">
+  <div class="row mb-3">
+    <div class="col-md d-flex justify-content-center align-itens-center">
+      <button class="btn btn-primary" (click)="previous()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous</button>
+    </div>
+    <div class="col-md d-flex justify-content-center align-itens-center">
+      <button class="btn btn-primary" (click)="next()"><i class="fa fa-arrow-right" aria-hidden="true"></i> Next</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <app-stepper class="mb-4" style="display: block;" [data]="stepperConfig" (onStepSelected)="stepSelected($event)" (onStatusChanged)="onStatusChanged($event)"></app-stepper>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md jumbotron">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md">
+      <h4>Event List</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md" style="height: 500px; overflow: auto;">
+      <pre>{{ events | json }}</pre>
+    </div>
+  </div>
+</div>
